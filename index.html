@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Chain Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Word Chain Game</h1>
+        
+        <!-- Game Rules -->
+        <div class="rules-section">
+            <h2>How to Play</h2>
+            <div class="rules-content">
+                <ol>
+                    <li>Enter your name and select a time limit to start the game.</li>
+                    <li>Type a valid English word and submit it.</li>
+                    <li>Qbit will respond with a word that begins with the last letter of your word.</li>
+                    <li>Your next word must begin with the last letter of Qbit's word.</li>
+                    <li>Words cannot be repeated during the game.</li>
+                    <li>Submit your word before the timer runs out!</li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- Player Registration -->
+        <div id="playerRegistration" class="game-section">
+            <input type="text" id="playerName" placeholder="Enter your name" autocomplete="off">
+            <div class="time-selection">
+                <label for="timeLimit">Select Time Limit:</label>
+                <select id="timeLimit">
+                    <option value="30">30 Seconds</option>
+                    <option value="60">1 Minute</option>
+                    <option value="120">2 Minutes</option>
+                    <option value="180">3 Minutes</option>
+                    <option value="240">4 Minutes</option>
+                    <option value="300">5 Minutes</option>
+                </select>
+            </div>
+            <div class="difficulty-selection">
+                <label for="difficulty">Select Difficulty:</label>
+                <select id="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="normal" selected>Normal</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            <button id="startGameButton" onclick="startGame()">Start Game</button>
+        </div>
+
+        <!-- Game Area -->
+        <div id="gameArea" class="game-section" style="display: none;">
+            <div class="game-info">
+                <div class="player-info">
+                    <span id="playerDisplay"></span>
+                    <div class="timer" id="timer">Time: 30s</div>
+                </div>
+                <div class="game-stats">
+                    <div class="stat-box">
+                        <div id="streakDisplay">Streak: 0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div id="pointsDisplay">Points: 0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div id="highScoreDisplay">High Score: 0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div id="correctWordsDisplay">Correct Words: 0</div>
+                    </div>
+                </div>
+                <div class="used-words" id="usedWords">
+                    Used words will appear here
+                </div>
+            </div>
+            
+            <div class="game-controls">
+                <input type="text" id="wordInput" placeholder="Enter a word" autocomplete="off">
+                <button id="submitButton" onclick="submitWord()">Submit</button>
+                <button id="hintButton" class="hint-button" onclick="getHint()">Get Hint (-5 points)</button>
+            </div>
+
+            <div class="message" id="message"></div>
+            <div class="history" id="history">Game history will appear here</div>
+            
+            <div class="game-actions">
+                <button id="newGameButton" class="action-button new-game" onclick="resetGame()" style="display: none;">New Game</button>
+                <button id="downloadPDF" class="action-button download" onclick="generatePDF()" style="display: none;">Download Game History</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2025 Word Chain Game. All rights reserved.</p>
+            <p>Challenge your vocabulary and quick thinking skills!</p>
+            <p>Developed By <a href="https://qknot.github.io/Portfolio/" target="_blank">Rahul Ghosh</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
