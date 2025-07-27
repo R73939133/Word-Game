@@ -593,38 +593,38 @@ function enhanceMobileExperience() {
 }
 
 // Add corresponding CSS rules
-const mobileStyles = `
-    @media (max-width: 768px) {
-        .container {
-            padding: 12px;
-            min-height: calc(var(--vh, 1vh) * 100);
-        }
+// const mobileStyles = `
+//     @media (max-width: 768px) {
+//         .container {
+//             padding: 12px;
+//             min-height: calc(var(--vh, 1vh) * 100);
+//         }
         
-        .game-controls {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: var(--card-background);
-            padding: 12px;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-        }
+//         .game-controls {
+//             position: fixed;
+//             bottom: 0;
+//             left: 0;
+//             right: 0;
+//             background: var(--card-background);
+//             padding: 12px;
+//             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+//         }
         
-        .game-area {
-            padding-bottom: 160px;
-        }
+//         .game-area {
+//             padding-bottom: 160px;
+//         }
         
-        input, button {
-            min-height: 44px;
-            touch-action: manipulation;
-        }
+//         input, button {
+//             min-height: 44px;
+//             touch-action: manipulation;
+//         }
         
-        .history, .used-words {
-            -webkit-overflow-scrolling: touch;
-            max-height: 25vh;
-        }
-    }
-`;
+//         .history, .used-words {
+//             -webkit-overflow-scrolling: touch;
+//             max-height: 25vh;
+//         }
+//     }
+// `;
 
 // Add the styles to the document
 const styleSheet = document.createElement('style');
